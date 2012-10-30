@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Facebook Friend Selector - example use 1</title>
+	</head>
+	<body>
+		
+		<div id="fb-root"></div>
+		<script>
+		  window.fbAsyncInit = function() {
+		    // init the FB JS SDK
+		    FB.init({
+		      appId      : '374665489283180', // App ID from the App Dashboard
+		      channelUrl : '//WWW.YOUR_DOMAIN.COM/channel.html', // Channel File for x-domain communication
+		      status     : true, // check the login status upon init?
+		      cookie     : false, // set sessions cookies to allow your server to access the session?
+		      xfbml      : false  // parse XFBML tags on this page?
+		    });
+
+		    // Additional initialization code such as adding Event Listeners goes here
+		  };
+
+		  // Load the SDK's source Asynchronously
+		  (function(d){
+		     var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+		     if (d.getElementById(id)) {return;}
+		     js = d.createElement('script'); js.id = id; js.async = true;
+		     js.src = "http://connect.facebook.net/en_US/all.js";
+		     ref.parentNode.insertBefore(js, ref);
+		   }(document));
+		</script>
+	</body>
+</html>
