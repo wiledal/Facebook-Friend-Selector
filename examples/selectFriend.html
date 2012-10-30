@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<title>Facebook Friend Selector - example use 1</title>
+		<link rel="stylesheet" href="../bin/FacebookFriendSelector.css">
 	</head>
 	<body>
 		
@@ -28,6 +29,40 @@
 		     js.src = "http://connect.facebook.net/en_US/all.js";
 		     ref.parentNode.insertBefore(js, ref);
 		   }(document));
+		</script>
+
+		<h1>Simple friend selector</h1>
+		<p>The friend selector requires a .js and .css to be included.</p>
+		<p>It only works if you are logged in.</p>
+
+		<p><button onclick="login()">Click here to log in</button></p>
+		<p><button onclick="launchFS()">Click here to launch Friend Selector</button></p>
+
+		<script type="text/javascript" src="../bin/FacebookFriendSelector.js"></script>
+		<script type="text/javascript">
+			function login() {
+				FB.login(function(resp) {
+					if (resp.authResponse) {
+
+					}else{
+						alert("You must login in order to test the friend selector.");
+					}
+				})
+			}
+			function launchFS() {
+				fbFriendSelector.open(function(resp) {
+					var ret = "";
+					if (resp) {
+						ret = "You selected the following: \n";
+						for (var i = 0; i < resp.length; i++) {
+							ret += resp[i].name + "\n";
+						}
+					}else{
+						ret = "You selected no friends.";
+					}
+					alert(ret);
+				});
+			}
 		</script>
 	</body>
 </html>

@@ -1,3 +1,10 @@
+/*
+Facebook Friend Selector
+Author: Hugo Wiledal
+
+Delivered as is with no guarantees.
+*/
+
 !function() {
 	function FacebookFriend(name, id) {
 		var that = this;
